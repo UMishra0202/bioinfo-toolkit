@@ -1,4 +1,5 @@
 import argparse
+from utils import parse_fasta, gc_content
 def parse_fasta(file_path):
     sequences = {}
     with open(file_path, 'r') as file:
