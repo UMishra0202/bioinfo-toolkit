@@ -1,3 +1,4 @@
+import argparse
 def parse_fasta(file_path):
     sequences = {}
     with open(file_path, 'r') as file:
@@ -27,7 +28,12 @@ def gc_content(sequence):
 
 
 def main():
-    file_path = "data/sample.fasta"
+    parser = argparse.ArgumentParser(description="FASTA sequence analyzer")
+    parser.add_argument("--input", required=True, help="Path to FASTA file")
+
+    args = parser.parse_args()
+    file_path = args.input
+
     sequences = parse_fasta(file_path)
 
     for seq_id, seq in sequences.items():
